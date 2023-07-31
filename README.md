@@ -1,15 +1,41 @@
-# Desafio N°7 Refactor a nuestro login
+# Desafio N°8 Reestructura de nuestro servidor
 
 ## LEIBLICH Ezequiel Gaston
 
 ## Comisión 43345 - Programación Backend
 
-En este proyecto, se realizó una refactorización del login del entregable anterior para incluir nuevos conceptos y funcionalidades. Se implementaron los siguientes aspectos:
+Este repositorio contiene el trabajo terminado de la reestructura del servidor, basado en un modelo de capas para una mejor organización y separación de responsabilidades.
 
-1- Hasheo de contraseña utilizando bcrypt: Se aplicó una técnica de hasheo de contraseñas utilizando la biblioteca bcrypt. Esto permitió almacenar las contraseñas de forma segura en la base de datos, evitando el almacenamiento de las contraseñas en texto plano. De esta manera, se garantizó una mayor seguridad en la autenticación de los usuarios.
+Descripción:
 
-2- Implementación de Passport: Se integró el framework de autenticación Passport en el proyecto. Se utilizó Passport tanto para el registro como para el login de los usuarios. Esta integración facilitó la gestión de las sesiones y la autenticación de forma segura. Passport proporcionó una capa de abstracción que simplificó el proceso de autenticación, permitiendo un manejo eficiente de las credenciales de usuario y asegurando la integridad de la información.
+El proyecto ha sido reorganizado en diferentes capas, siguiendo las mejores prácticas de desarrollo:
 
-3- Método de autenticación de GitHub: Se implementó el método de autenticación de GitHub en la vista de login. Esto permitió a los usuarios autenticarse utilizando sus credenciales de GitHub en lugar de un registro tradicional. Al hacer clic en la opción de inicio de sesión con GitHub, se redirigía al usuario a la página de autorización de GitHub, donde se le solicitaba permiso para acceder a su cuenta. Una vez autorizado, se creaba una sesión de usuario con los datos proporcionados por GitHub. Esta funcionalidad mejoró la experiencia de inicio de sesión, ofreciendo a los usuarios una opción alternativa y práctica para acceder a la plataforma.
+1. Capa de Routing: Encargada de manejar las rutas de la aplicación y la comunicación con el cliente. Aquí se definen los endpoints y se gestionan las peticiones HTTP.
 
-En resumen, el trabajo consistió en la refactorización del login del entregable anterior para incluir nuevos conceptos y funcionalidades. Se implementó el hasheo de contraseña utilizando bcrypt para garantizar la seguridad de las contraseñas almacenadas. Se integró Passport como framework de autenticación, lo que permitió un manejo eficiente de las sesiones y la autenticación segura de los usuarios. Además, se implementó el método de autenticación de GitHub en la vista de login, brindando a los usuarios la opción de iniciar sesión utilizando sus credenciales de GitHub. Estas mejoras fortalecieron la seguridad y la accesibilidad del sistema de login, proporcionando una experiencia de usuario más robusta y versátil.
+2. Capa de Controlador: Responsable de la lógica de negocio y operaciones. Aquí se realizan las operaciones necesarias para completar las tareas solicitadas, y se comunica con la capa de Persistencia.
+
+3. Capa de DAO (Data Access Object): Encargada de la conexión y gestión de datos en la base de datos o sistema de persistencia. Aquí se accede a los datos y se realizan operaciones CRUD (Crear, Leer, Actualizar, Eliminar) necesarias.
+
+4. Vistas: Las vistas están correctamente separadas y organizadas. Se han implementado modelos de capas para asegurar una correcta delegación de responsabilidades.
+
+Configuración de Variables de Entorno
+
+Todas las partes importantes y datos comprometidos se han movido a un archivo .env para mantenerlos seguros y proteger información sensible. Además, se ha implementado un archivo config.js para leer las variables de entorno y configurar el proyecto adecuadamente.
+
+Instrucciones
+
+Para ejecutar el proyecto, sigue los siguientes pasos:
+
+1. Clona este repositorio en tu máquina local.
+
+2. Crea un archivo .env y coloca en él las variables de entorno necesarias, como credenciales de la base de datos o claves de acceso.
+
+3. Configura el archivo config.js para leer las variables de entorno y establecer la configuración del proyecto.
+
+4. Instala las dependencias necesarias ejecutando npm install.
+
+5. Ejecuta el servidor con npm start o el comando que corresponda según tu configuración.
+
+¡Listo! El proyecto se ejecutará con la nueva estructura de capas y las variables de entorno configuradas de manera segura.
+
+¡Gracias por revisar este proyecto reestructurado!
